@@ -35,6 +35,23 @@ section{
     padding-top: 7.5rem;
 }
 
+.btn{
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 2rem 3rem;
+    border-radius: 5rem;
+    background: var(--gradient);
+    font-size: 1.7rem;
+    color: #fff;
+    cursor: pointer;
+    box-shadow: 0.5rem 1rem rgba(0, 0, 0, .1);
+    transition: all .3s linear;
+}
+
+.btn:hover{
+    transform: scale(1.1);
+}
+
 header{
     position: fixed;
     top: 0; left: 0;
@@ -79,7 +96,45 @@ header label{
     opacity: 0;
 }
 
+.home{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: url(../images/home-bg-img.png) no-repeat;
+    background-size: cover;
+    background-position: center;
+}
 
+.home .image img{
+    width: 40vw;
+    animation: float 3s linear infinite;
+}
+
+@keyframes float{
+    0%, 100%{
+        transform: translateY(0rem);
+    }
+    50%{
+        transform: translateY(-3.5rem);
+    }
+}
+
+.home .content h3{
+    font-size: 5.5rem;
+    color: #333;
+    text-transform: uppercase;
+}
+
+.home .content h3 span{
+    color: var(--pink);
+    text-transform: uppercase;
+}
+
+.home .content p{
+    font-size: 1.7rem;
+    color: #666;
+    padding: 1rem 0;
+}
 
 
 
@@ -104,6 +159,15 @@ header label{
     }
 }
 
+@media (max-width:991px){
+
+    section{
+        padding: 0 3%;
+        padding-top: 7.5rem;
+    }
+    
+}
+
 @media (max-width:768px){
 
     header label{
@@ -122,6 +186,7 @@ header label{
         transform-origin: top;
         transform: scaleY(0);
         opacity: 0;
+        transition: .3s linear;
     }
 
     header .navbar a{
@@ -133,10 +198,27 @@ header label{
     header input:checked ~ .navbar{
         transform: scaleY(1);
         opacity: 1;
+        
     }
 
     header input:checked ~ label::before{
         content: '\f00d';
+    }
+
+    .home{
+        flex-flow: column-reverse;
+    }
+
+    .home .image img{
+        width: 100%;
+    }
+
+    .home .content h3{
+        font-size: 3.6rem;
+    }
+
+    .home .content p{
+        font-size: 1.5rem;
     }
 
     @media (max-width:450px){
